@@ -31,11 +31,29 @@ namespace StargateAPI.Business.Commands
 
     public class UpdatePersonHandler : IRequestHandler<UpdatePerson, UpdatePersonResult>
     {
-        public Task<UpdatePersonResult> Handle(UpdatePerson request, CancellationToken cancellationToken)
+        private readonly StargateContext _context;
+
+        public UpdatePersonHandler(StargateContext context)
         {
-            // todo:
-            //  - make update to person name
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task<UpdatePersonResult> Handle(UpdatePerson request, CancellationToken cancellationToken)
+        {
+            Person? p = _context.People.Where(p => p.Name == request.Name).FirstOrDefault();
+            if (p is null) throw new InvalidDataException($"Could not find [{request.Name}]");
+
+            Person? pNew = _context.People.Where(p => p.Name == request.newName).FirstOrDefault();
+            if (pNew != null) throw new InvalidDataException($"The new name [{request.newName}] is already in use");
+
+            p.Name = request.newName;
+            _context.People.Update(p);
+            await _context.SaveChangesAsync();
+
+            return new UpdatePersonResult()
+            {
+                Id = p.Id
+            };
         }
     }
 
