@@ -4,11 +4,11 @@
 
 ### API (required)
 
-1. Retrieve a person by name.
-1. Retrieve all people.
+1. Retrieve a person by name. (x)
+1. Retrieve all people. (x)
 1. Add/update a person by name.
-1. Retrieve Astronaut Duty by name.
-1. Add an Astronaut Duty.
+1. Retrieve Astronaut Duty by name. (x)
+1. Add an Astronaut Duty. (x)
 
 
 ### UI is expected to do the following: (encouraged)
@@ -34,7 +34,8 @@ Examine the code, find and resolve any flaws, if any exist. Identify design patt
     * Log successes
 1. Patterns used
     - repository pattern
-    - 
+    - command pattern
+    - mediator pattern
 
 
 ### known issues
@@ -57,4 +58,11 @@ Examine the code, find and resolve any flaws, if any exist. Identify design patt
 ### 2025-10-04
 - plans changed, I am doing more work today.  I've been thinking about the overall plan
 - organized thoughts, and notes for tracking tasks
-- 
+- started getting dev environment ready for work (needed .net sdks, and EF tools)
+- got db generated, committed changes to git
+
+### 2025-10-06
+- started working on changes as I think I have plans laid
+- started adding feature to change person name
+- started adding unit tests
+- need to add more documentation around ideas ...
