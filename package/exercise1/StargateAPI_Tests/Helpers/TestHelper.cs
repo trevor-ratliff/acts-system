@@ -1,9 +1,11 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using StargateAPI.Business.Data;
 
 namespace StargateAPI_Tests.Helper;
 
+[ExcludeFromCodeCoverage]
 public class TestHelper
 {
     public static StargateContext CreateInMemoryDbContext()
@@ -53,6 +55,7 @@ public class TestHelper
                     new() {
                         Id = 1,
                         PersonId = 1,
+                        Person = ctx.People.Find(1) ?? new() { Name = "01" },
                         Rank = "Astronaut",
                         DutyTitle = "Commander",
                         DutyStartDate = DateTime.Now.AddMonths(-10),
@@ -61,6 +64,7 @@ public class TestHelper
                     new() {
                         Id = 2,
                         PersonId = 2,
+                        Person = ctx.People.Find(2) ?? new() { Name = "02" },
                         Rank = "Astronaut",
                         DutyTitle = "Pilot",
                         DutyStartDate = DateTime.Now.AddMonths(-10),
@@ -69,6 +73,7 @@ public class TestHelper
                     new() {
                         Id = 3,
                         PersonId = 3,
+                        Person = ctx.People.Find(3) ?? new() { Name = "03" },
                         Rank = "Astronaut Candidate",
                         DutyTitle = "Intern",
                         DutyStartDate = DateTime.Now.AddMonths(-6),
@@ -77,6 +82,7 @@ public class TestHelper
                     new() {
                         Id = 4,
                         PersonId = 3,
+                        Person = ctx.People.Find(3) ?? new() { Name = "03" },
                         Rank = "Astronaut Candidate",
                         DutyTitle = "Crew Member",
                         DutyStartDate = DateTime.Now.AddMonths(-3),
@@ -98,7 +104,7 @@ public class TestHelper
         return hasCompleted;
     }
 
-    public static bool AddAstronautDetails(StargateContext ctx, bool allData = true)
+    public static bool AddAstronautDetailRecords(StargateContext ctx, bool allData = true)
     {
         bool hasCompleted = false;
 
@@ -118,6 +124,7 @@ public class TestHelper
                 new() {
                     Id = 1,
                     PersonId = 1,
+                    Person = ctx.People.Find(1) ?? new() { Name = "01" },
                     CurrentRank = "Astronaut",
                     CurrentDutyTitle = "Commander",
                     CareerStartDate = DateTime.Now.AddMonths(-24),
@@ -126,6 +133,7 @@ public class TestHelper
                 new() {
                     Id = 2,
                     PersonId = 2,
+                    Person = ctx.People.Find(2) ?? new() { Name = "02" },
                     CurrentRank = "Astronaut",
                     CurrentDutyTitle = "Pilot",
                     CareerStartDate = DateTime.Now.AddMonths(-20),
@@ -134,6 +142,7 @@ public class TestHelper
                 new() {
                     Id = 3,
                     PersonId = 3,
+                    Person = ctx.People.Find(3) ?? new() { Name = "03" },
                     CurrentRank = "Astronaut Candidate",
                     CurrentDutyTitle = "Crew Member",
                     CareerStartDate = DateTime.Now.AddMonths(-6),

@@ -75,7 +75,7 @@ namespace StargateAPI.Controllers
                 var result = await _mediator.Send(new UpdatePerson()
                 {
                     Name = name,
-                    newName = newName
+                    NewName = newName
                 });
 
                 return this.GetResponse(result);
