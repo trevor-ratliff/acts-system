@@ -1,0 +1,28 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline {
+    width: 80vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    .timeline-col {
+        flex-shrink: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .timeline-header {
+            font-weight: 700;
+        }
+        .timeline-cell {
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            width: 15vw;
+        }
+    }
+}

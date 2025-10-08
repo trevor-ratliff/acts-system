@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './timeline.less'
 })
 export class Timeline {
-
+  protected readonly startDate = Date.now;
 }
