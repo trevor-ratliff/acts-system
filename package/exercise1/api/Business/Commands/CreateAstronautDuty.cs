@@ -54,11 +54,9 @@ namespace StargateAPI.Business.Commands
         {
 
             var query = $"SELECT * FROM [Person] WHERE \'{request.Name}\' = Name";
-
-            var person = await _context.Connection.QueryFirstOrDefaultAsync<Person>(query);
+            var person = await _context.Connection.QueryFirstOrDefaultAsync<Person>(query) ?? throw new BadHttpRequestException($"no person record found for [{request.Name}]");
 
             query = $"SELECT * FROM [AstronautDetail] WHERE {person.Id} = PersonId";
-
             var astronautDetail = await _context.Connection.QueryFirstOrDefaultAsync<AstronautDetail>(query);
 
             if (astronautDetail == null)

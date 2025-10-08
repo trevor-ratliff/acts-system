@@ -1,0 +1,11 @@
+<p>timeline works!</p>
+<div class="timeline flex-row">
+    @for (item of [1,2,3,4,5,6,7,8,9,10]; track $index) {
+        <div class="timeline-col flex-column">
+            <div class="timeline-header">2025-0{{item}}</div>
+            @for (cell of [1,2,3,4,5]; track $index) {
+                <div class="timeline-cell">{{cell}}</div>
+            }
+        </div>
+    }
+</div>

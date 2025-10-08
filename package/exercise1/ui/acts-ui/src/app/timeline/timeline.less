@@ -1,0 +1,30 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 6px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.timeline {
+    width: 50vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    .timeline-col {
+        flex-shrink: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .timeline-header {
+            font-weight: 700;
+        }
+        .timeline-cell {
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            width: 15vw;
+        }
+    }
+}
